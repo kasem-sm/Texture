@@ -2,20 +2,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "TextureAsyncDisplayKit",
+    name: "Texture",
+    platforms: [
+        .iOS(.v11)
+    ],
     products: [
         .library(
-            name: "TextureAsyncDisplayKit",
-            targets: ["TextureAsyncDisplayKit"]),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/kasem-sm/Texture.git", from: .init(3, 2, 0)),
+            name: "AsyncDisplayKit",
+            targets: ["AsyncDisplayKit"])
     ],
     targets: [
-        .target(
-            name: "TextureAsyncDisplayKit",
-            dependencies: [
-                .product(name: "AsyncDisplayKit", package: "Texture"),
-            ]),
+        .binaryTarget(
+            name: "AsyncDisplayKit",
+            url: "https://github.com/kasem-sm/Texture/releases/download/3.2.0/AsyncDisplayKit.xcframework.zip",
+            checksum: "9a142a5cd0fd6a07a9f494deeb2803833724d66faad5687f978645585bc0ef4a"
+        )
     ]
 )
